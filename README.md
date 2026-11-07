@@ -1,6 +1,4 @@
-# 📁 SORTZEN – Automated File Organizer
 
-### ✨ Your Files. Your Order. Automatically.
 
 SORTZEN is a simple and smart file organization web application built using Python and Flask. It automatically categorizes uploaded files into separate folders based on their file extensions, making file management easier, faster and more organized.
 
