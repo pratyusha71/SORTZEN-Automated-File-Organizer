@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SORTZEN | Smart File Organizer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2>📁 SORTZEN</h2>
+            <p class="tagline">Your files. Your order.</p>
+
+            <nav>
+                <a href="#" class="active">🏠 Home</a>
+                <a href="#organize">📂 Organize Files</a>
+                <a href="#about">ⓘ About</a>
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <section class="welcome">
+                <h1>Welcome to <span>SORTZEN</span> 👋</h1>
+
+                <p>
+                    Organize your digital workspace effortlessly.
+                    Upload your files and let SORTZEN do the sorting for you!
+                </p>
+            </section>
+
+            <!-- Features -->
+            <section class="features">
+
+                <div class="feature-card">
+                    <h3>⚡ Automatic Sorting</h3>
+                    <p>Automatically sorts files based on their extensions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📁 Smart Categories</h3>
+                    <p>Organizes documents, images, videos and more.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>✨ Easy to Use</h3>
+                    <p>Keep your files organized with just one click.</p>
+                </div>
+
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-section" id="organize">
+
+                <h2>☁️ Upload Your Files</h2>
+
+                <p>Select multiple files from your device.</p>
+
+                <form action="/organize" method="POST" enctype="multipart/form-data">
+
+                    <input type="file" name="files" id="fileInput" multiple required>
+
+                    <button type="submit">✨ Organize Now</button>
+
+                </form>
+
+            </section>
+
+            <!-- Summary -->
+            <section class="summary">
+
+                <h2>📊 Organization Summary</h2>
+
+                <div class="summary-cards">
+
+                    <div class="card">
+                        <h3>Total Files</h3>
+                        <h1>{{ total_files or 0 }}</h1>
+                    </div>
+
+                    <div class="card">
+                        <h3>Organized Files</h3>
+                        <h1>{{ organized_files or 0 }}</h1>
+                    </div>
+
+                    <div class="card">
+                        <h3>Categories</h3>
+                        <h1>{{ categories or 0 }}</h1>
+                    </div>
+
+                </div>
+
+                {% if message %}
+                    <p class="success">{{ message }}</p>
+                {% endif %}
+
+                {% if download_url %}
+                <a href="{{ download_url }}" class="download-btn">
+                    ⬇ Download Organized Files
+                 </a>
+                {% endif %}
+
+            </section>
+
+            <!-- Footer -->
+            <footer id="about">
+                <p>© 2026 SORTZEN | Smart File Organizer</p>
+                <p>Your files. Your order. Automatically.</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
